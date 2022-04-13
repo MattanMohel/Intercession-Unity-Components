@@ -159,7 +159,7 @@ public static class IOUtil {
 
     // asserts path exists and creates necessary parts if it doesn't
     public static void AssertPath(string path) {
-        var partial = Application.dataPath + "\\" + resources;
+        var partial = Application.dataPath + "/" + resources;
 
         if (!Directory.Exists(partial)) {
             Directory.CreateDirectory(partial);
@@ -190,10 +190,10 @@ public static class IOUtil {
         string path = string.Empty;
 
         if (relative) {
-            path += Application.dataPath + "\\" + resources;
+            path += Application.dataPath + "/" + resources;
         }
         foreach (string p in paths) {
-            path += "\\" + p;
+            path += "/" + p;
         }
 
         return path;
