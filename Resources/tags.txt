@@ -1,4 +1,0 @@
-Floor
-Enemy
-Player
-Test
