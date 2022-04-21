@@ -1,5 +1,2 @@
-Player
 
-Ground
-Enemy
-Ladder
+
