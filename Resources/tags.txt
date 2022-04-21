@@ -1,8 +1,0 @@
-Floor
-Enemy
-Player
-Test
-Ground
-Gem
-Spawner
-E
