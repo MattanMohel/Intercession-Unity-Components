@@ -13,7 +13,7 @@ public class Destroy : Action
     }
 
     public override void doAction() {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public override void serialize() {
