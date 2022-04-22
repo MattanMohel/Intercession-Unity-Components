@@ -11,7 +11,7 @@ public enum CollisionType {
 public class CollisionTrigger : Trigger
 {
     [SerializeField]
-    public Collider2D usedCollider;
+    public Collider2D myCollider;
 
     [SerializeField]
     private CollisionType collisionType;
@@ -30,7 +30,7 @@ public class CollisionTrigger : Trigger
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collisionType == CollisionType.Enter &&
-            collision.otherCollider == usedCollider &&
+            collision.otherCollider == myCollider &&
             collisionCond.isTrue(collision.gameObject)) {
 
             state = true;
@@ -39,7 +39,7 @@ public class CollisionTrigger : Trigger
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collisionType == CollisionType.Exit && 
-            collision.otherCollider == usedCollider &&
+            collision.otherCollider == myCollider &&
             collisionCond.isTrue(collision.gameObject)) {
 
             state = true;
@@ -48,7 +48,7 @@ public class CollisionTrigger : Trigger
 
     private void OnCollisionStay2D(Collision2D collision) {
         if (collisionType == CollisionType.Stay &&
-            collision.otherCollider == usedCollider &&
+            collision.otherCollider == myCollider &&
             collisionCond.isTrue(collision.gameObject)) {
 
             state = true;
