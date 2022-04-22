@@ -37,7 +37,7 @@ public class AnimationManager : Node
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
 
-            rend.sprite = curAnim.getFrame();
+        rend.sprite = curAnim.getFrame();
 
         bool curAnimIsTrue = animIndex != -1 && animConds[animIndex].isTrue(gameObject);
         bool changed = false;
@@ -149,6 +149,8 @@ public class AnimationData {
     public float speed = 24;
     [SerializeField]
     bool repeat = true;
+    [SerializeField]
+    List<Action> actionsOnAnimationEnd = new List<Action>();
     [HideInInspector]
     public int index = 0;
 
@@ -169,6 +171,12 @@ public class AnimationData {
             }
             else {
                 index = Mathf.Clamp(index + 1, 0, clips.Length - 1);
+            }
+        }
+
+        if (index == clips.Length - 1) {
+            foreach (Action action in actionsOnAnimationEnd) {
+                action.doAction();
             }
         }
 
